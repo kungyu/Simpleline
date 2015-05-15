@@ -23,20 +23,30 @@ class Autoload {
         spl_autoload_register(array($this,'loadClass'));
     }
 
+
     public function loadClass($className){
         $file_arr = explode('\\',$className);
         $fileName = array_pop($file_arr);
-        if(strpos($fileName,'controller') > 0){
-            $file = '\\controller\\'.$fileName.'.class.php';
-        }
-        if(strpos($fileName,'model') > 0){
-            $file = '\\model\\'.$fileName.'.model.php';
-        }
-        if($fileName == 'view')
-            $file = '\\view\\view.class.php';
-        $filepath = str_replace('\\','/',$file);
-        require ROOT_DIR.$filepath;
-
+        $filepath = $this->getPath($fileName);
+        $this->requireFile($filepath);
     }
 
-} 
+    public function getPath($fileName){
+        if(strpos($fileName,'controller') > 0){
+            $file = '/controller/'.$fileName.'.class.php';
+        }
+        if(strpos($fileName,'model') > 0){
+            $file = '/model/'.$fileName.'.model.php';
+        }
+        if($fileName == 'view')
+            $file = '/view/view.class.php';
+        return $file;
+    }
+
+    public function requireFile($path){
+        $truePath = ROOT_DIR.$path;
+        if(is_file($truePath))
+            require $truePath;
+        
+    } 
+}
