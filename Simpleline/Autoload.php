@@ -6,7 +6,7 @@
  * Time: 下午2:20
  */
 
-namespace streamline;
+namespace Simpleline;
 
 
 class Autoload {
@@ -22,7 +22,6 @@ class Autoload {
     public function autoReg(){
         spl_autoload_register(array($this,'loadClass'));
     }
-
 
     public function loadClass($className){
         $file_arr = explode('\\',$className);
@@ -47,6 +46,7 @@ class Autoload {
         $truePath = ROOT_DIR.$path;
         if(is_file($truePath))
             require $truePath;
-        
-    } 
-}
+
+    }
+
+} 
