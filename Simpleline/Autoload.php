@@ -24,22 +24,13 @@ class Autoload {
     }
 
     public function loadClass($className){
-        $file_arr = explode('\\',$className);
-        $fileName = array_pop($file_arr);
-        $filepath = $this->getPath($fileName);
+        $filepath = $this->getPath($className);
         $this->requireFile($filepath);
     }
 
     public function getPath($fileName){
-        if(strpos($fileName,'controller') > 0){
-            $file = '/controller/'.$fileName.'.class.php';
-        }
-        if(strpos($fileName,'model') > 0){
-            $file = '/model/'.$fileName.'.model.php';
-        }
-        if($fileName == 'view')
-            $file = '/view/view.class.php';
-        return $file;
+    	$fileName = str_replace('\\','/',$fileName);
+        return '/'.$fileName.'.class.php';
     }
 
     public function requireFile($path){

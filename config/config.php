@@ -2,8 +2,8 @@
     return $config = array (
   'server' => 
   array (
-    'host' => '182.254.149.230',
-    'port' => '2339',
+    'host' => 'XXX.XXX.XXX.XXX',
+    'port' => 'XX',
   ),
   'default' =>
 	array(
