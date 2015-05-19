@@ -5,8 +5,9 @@
  * Date: 15-3-26
  * Time: 下午4:36
  */
-namespace view;
-class view {
+namespace Simpleline;
+
+class View {
 
     protected $template;
     protected $ext;

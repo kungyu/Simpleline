@@ -9,4 +9,4 @@ header("Content-type:text/html;chartset=utf-8");
 error_reporting(E_ALL);
 session_start();
 define('ROOT_DIR',dirname(__FILE__));
-include ROOT_DIR.'/Simpleline/Simpleline.php';
+require ROOT_DIR.'/Simpleline/Simpleline.php';

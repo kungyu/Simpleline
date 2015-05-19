@@ -7,7 +7,8 @@
  * 登录管理员获取数据
  */
 namespace model;
-class basemodel {
+use \Simpleline\Model;
+class basemodel extends Model {
 
     private $host;
     private $port;

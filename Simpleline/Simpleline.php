@@ -6,8 +6,8 @@
  * Time: 上午11:13
  */
 
-include_once(ROOT_DIR."/config/config.php");
-include_once(ROOT_DIR."/function/function.php");
+require ROOT_DIR."/config/config.php" ;
+require ROOT_DIR."/function/function.php" ;
 require ROOT_DIR.'/Simpleline/Autoload.php';
 \Simpleline\Autoload::instance()->autoReg();
 
