@@ -39,7 +39,11 @@ function I($data){
  * */
 function C($ckey,$config = ''){
     require ROOT_DIR."/config/config.php";
-    return $config[$ckey];
+    if(isset($config[$ckey]))
+   	$result =  $config[$ckey];
+    else
+	$result = false;
+    return $result;
 }
 
 /*
